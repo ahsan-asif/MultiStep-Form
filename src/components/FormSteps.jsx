@@ -6,6 +6,7 @@ import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import Success from "./Success";
 import FormTabs from "./FormTabs";
+import {Container,Row,Col} from 'react-bootstrap';
 // import {tabData} from "../assets/Sample Data/data";
 
 const FormSteps = () => {
@@ -53,12 +54,12 @@ const FormSteps = () => {
     setStepCount((prev) => prev - 1);
   };
   return (
-    <div className='container'>
-      <div className='row mt-5 mb-5'>
-        <div className='col-md-12 col-lg-4 col-12'>
+    <Container>
+      <Row className="mt-5 mb-5">
+        <Col xs={4}>
           <FormTabs stepCount={stepCount} tabItems={tabItems} />
-        </div>
-        <div className='col-md-12 col-lg-8 col-12'>
+        </Col>
+        <Col xs={8} >
           <div id='form-element'>
             <div id='multiform'>
               {(stepCount === 1 && (
@@ -100,9 +101,9 @@ const FormSteps = () => {
                 ))}
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
