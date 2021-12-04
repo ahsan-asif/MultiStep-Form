@@ -56,10 +56,10 @@ const FormSteps = () => {
   return (
     <Container>
       <Row className="mt-5 mb-5">
-        <Col xs={4}>
+        <Col xs={12} lg={4}>
           <FormTabs stepCount={stepCount} tabItems={tabItems} />
         </Col>
-        <Col xs={8} >
+        <Col xs={12} lg={8}>
           <div id='form-element'>
             <div id='multiform'>
               {(stepCount === 1 && (
