@@ -1,16 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Source+Sans+Pro:wght@200;300;500;600;900&display=swap');
 * {
   padding: 0;
   margin: 0;
-  /* box-sizing: content-box; */
+}
+@font-face{
+  font-family: 'poppins';
+  src: url('./assets/fonts/Poppins-Bold.ttf');
 }
 body {
   overflow-x: hidden;
   background-color: #FAFAFA !important;
   font-family: 'Source Sans Pro' !important;
 }
-h1,h2{
-  font-family: 'Source Sans Pro';
+h2.comp-heading{
+  font-size: 28px;
+  line-height: 28px;
+}
+h2{
+  font-family: 'poppins';
   font-weight: 600 !important;
 }
 h3,h4,h5,h6{
@@ -19,7 +26,7 @@ h3,h4,h5,h6{
 }
 #form-element {
   height: 100%;
-  padding: 50px 50px;
+  padding: 32px 35px;
   background-color: #fff;
   box-shadow: 0px 8px 16px -4px rgba(22, 34, 51, 0.08);
   border-radius: 20px;
@@ -34,12 +41,15 @@ align-items: baseline;
 }
 .next {
   background-color: #3384FF;
-  padding: 15px 70px;
-  font-weight: bold;
+  padding: 15px 65px;
+  font-family: 'Inter';
+  font-weight: 600;
   border: none;
   outline: none;
+  font-size: 13px;
   border-radius: 50px;
   position: static;
+  right: 10;
   color: #fff;
   text-transform: uppercase;
   margin-top: 50px;
@@ -66,12 +76,34 @@ align-items: baseline;
     margin-top: 15px;
 }
 .form-check .form-check-label,.form-check input {
-  color: gray;
+  color: #A0A0A0;
+}
+.form-check input{
+padding-top:10px;
+padding-bottom: 10px;
+}
+.form-check input::placeholder{
+  color: #A0A0A0;
+  font-size: 400;
+}
+.form-check input,.form-check textarea {
+  margin-top: 5px;
+  border:0;
 }
 .form-check input,.form-check textarea{
 background: #f4f4f4;
 }
-
+.exp-title{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+.exp-description{
+  font-size:14px;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 0;
+}
 /* Fourth Screen styling */
 .terms_dv{
     display: flex !important;
@@ -107,27 +139,27 @@ background: #f4f4f4;
   font-weight: 500;
 }
 .list_li{
-  padding: 17px 30px;
+  padding: 10px 30px;
   margin-bottom: 30px;
   position: relative;
   display: flex;
   justify-content:flex-start;
   align-items: center;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
   opacity:0.2; 
-  color: #0a0b3e;
+  color: #202124;
+  border-left: 6px solid transparent;
 }
-span.icon{
-  content: "\2713";
-  font-size: 12px;
-  color: #fff;
-  position: absolute;
-  right:4px;
+span.icon img{
+   position: absolute;
+   margin-left: 4px;
+   margin-top: 5px;
 }
 span.icon-outer{
-  height: 18px;
-  width: 18px;
-  background-color: grey;
+  height: 16px;
+  width: 16px;
+  background-color: #D5D5D7;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -139,41 +171,45 @@ span.tab-text{
   margin-left: 15px;
 }
 .current_tab{
-  padding: 17px 30px;
+  padding: 20px 30px;
   margin-bottom: 30px;
   position: relative;
   display: flex;
   justify-content:flex-start;
   align-items: center;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
   opacity:1; 
-  color: #0a0b3e;
+  color: #202124;
   background-color: transparent ;
   border: 0px;
   box-shadow: none;
-  border-left: 5px solid #31D0FF;
+  border-left: 6px solid #3384FF;
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.09);
 }
 .tab_activated{
-  padding: 17px 30px;
+  padding: 10px 30px;
   margin-bottom: 30px;
   position: relative;
   display: flex;
   justify-content:flex-start;
+  font-size: 16px;
   align-items: center;
-  font-weight: bold;
+  font-weight: 600;
   opacity:1; 
-  color: #0a0b3e;
+  color: #202124;
+  border-left: 6px solid transparent;
+
 }
 .list_activated_span{
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
    display: inline-block;
    position: absolute;
   right:20px;
-  background-color:#31D0FF !important;
+  background-color:#3384FF !important;
 }
 .vacancies-box{
 background: #FAFAFA;
@@ -190,15 +226,40 @@ font-weight: 600;
 font-family: 'source sans pro';
 }
 .vacancies-description{
-font-size: 14px;
-text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: #000;
+}
+.jobDescriptionList{
+  list-style: none;
+}
+.jobDescriptionList li{
+  margin-top: -20px;
+}
+.jobDescriptionList li::before{
+  content: url('../src/assets/images/Vector1.png');
+  position: relative;
+  right:20px;
+  display: block;
+  top:23px;
+}
+.job-description-title{
+  color: #2F2E2E;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: 'source sans pro'; 
 }
 .active_vacancy{
-  border: 1px solid green;
+  border: 2px solid #3384FF;
 }
 .opacity{
   opacity:0.2
 }
 .project_job_btn:focus{
   border:1px solid #31D0FF ;
+}
+.prsnl-col{
+  padding-left: 12px;
 }

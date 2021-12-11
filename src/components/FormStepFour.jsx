@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import Heading from "../utils/Heading";
+import SubHeading from "../utils/SubHeading";
 
 const FormStepFour = (props) => {
   const [personalData, setpersonalData] = useState({
@@ -11,14 +13,18 @@ const FormStepFour = (props) => {
   console.log(personalData);
   return (
     <fieldset className=''>
-      <h2>Personal Details</h2>
-      <p>Enter Details</p>
+      <div className='row'>
+        <div className='col-12'>
+              <Heading> Personal Details </Heading>
+              <SubHeading>Enter Details</SubHeading>
+        </div>
+      </div>
       <div className='row'>
         <div className='col-12'>
           <form>
             <div className='row'>
-              <div className='col-12 form-group form-check'>
-                <label htmlFor='' style={{fontWeight: "600"}}>
+              <div className='col-12 form-group form-check prsnl-col'>
+                <label htmlFor='fullName' style={{fontWeight: "600"}}>
                   Your Full Name
                 </label>
                 <input
@@ -34,8 +40,8 @@ const FormStepFour = (props) => {
                 />
               </div>
             </div>
-            <div className='row mt-1'>
-              <div className='col-6 form-group form-check'>
+            <div className='row'>
+              <div className='col-6 form-group form-check prsnl-col'>
                 <label htmlFor='' style={{fontWeight: "600"}}>
                   Your Email Address
                 </label>
@@ -68,8 +74,8 @@ const FormStepFour = (props) => {
                 />
               </div>
             </div>
-            <div className='row mt-1'>
-              <div className='col-12 form-group form-check'>
+            <div className='row'>
+              <div className='col-12 form-group form-check prsnl-col'>
                 <label htmlFor='' style={{fontWeight: "600"}}>
                   Upload Your CV
                 </label>
@@ -86,25 +92,25 @@ const FormStepFour = (props) => {
                 />
               </div>
             </div>
-            <div className='row mt-1'>
-              <div className='col-12 form-group form-check'>
-                  <label htmlFor='' style={{fontWeight: "600"}}>
-                    Tell us about youself
-                  </label>
-                  <textarea
-                    rows='6'
-                    className='form-control'
-                    placeholder='Describe yourself in a couple of sentences.'
-                    name='aboutIntro'
-                    id='aboutIntro'
-                    value={personalData.aboutIntro}
-                    onChange={(e) =>
-                      setpersonalData({
-                        ...personalData,
-                        aboutIntro: e.target.value,
-                      })
-                    }
-                  ></textarea>
+            <div className='row'>
+              <div className='col-12 form-group form-check prsnl-col'>
+                <label htmlFor='' style={{fontWeight: "600"}}>
+                  Tell us about youself
+                </label>
+                <textarea
+                  rows='6'
+                  className='form-control'
+                  placeholder='Describe yourself in a couple of sentences.'
+                  name='aboutIntro'
+                  id='aboutIntro'
+                  value={personalData.aboutIntro}
+                  onChange={(e) =>
+                    setpersonalData({
+                      ...personalData,
+                      aboutIntro: e.target.value,
+                    })
+                  }
+                ></textarea>
               </div>
             </div>
           </form>
@@ -125,7 +131,7 @@ const FormStepFour = (props) => {
           type='button'
           className='next'
           onClick={() => {
-            props.screenChanged("personaInformation",personalData);
+            props.screenChanged("personaInformation", personalData);
           }}
         >
           Next

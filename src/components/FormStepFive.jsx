@@ -1,10 +1,13 @@
 import React from "react";
+import Heading from '../utils/Heading'
+import SubHeading from '../utils/SubHeading';
+
 
 const FormStepFive = (props) => {
   return (
     <fieldset className=''>
-      <h2>Submit Application</h2>
-      <p>Please make sure that all the details you entered are correct.</p>
+      <Heading> Submit Application </Heading>
+      <SubHeading>Please make sure that all the details you entered are correct.</SubHeading>
       <div className='form-group country-tabs row'>
         <div className='col-12'>
           <h5 className="vacancies-title">Terms & Conditions</h5>

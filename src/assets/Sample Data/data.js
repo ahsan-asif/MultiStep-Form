@@ -26,7 +26,7 @@ export const tabData = () =>{
   const tabItems= [
     {
       id: 1,
-      name: "New Vacancies",
+      name: "Vacancies",
       status: false,
     },
     {

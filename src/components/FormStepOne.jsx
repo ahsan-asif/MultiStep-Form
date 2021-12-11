@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import {vacancies} from "../assets/Sample Data/data";
+import Heading from '../utils/Heading';
+import SubHeading from '../utils/SubHeading';
+
 
 const FormStepOne = (props) => {
   const [status, setStatus] = useState(false);
@@ -12,10 +15,10 @@ const FormStepOne = (props) => {
   };
   return (
     <fieldset className=''>
-      <h2>Vacancies</h2>
-      <p style={{fontFamily: "Source Sans Pro", fontWeight: "600"}}>
+      <Heading>Vacancies</Heading>
+      <SubHeading>
         Let's estimate the cost of your site.
-      </p>
+        </SubHeading>
       {data.map((item) => (
         <div
           id={item.id}

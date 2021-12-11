@@ -19,7 +19,7 @@ const FormSteps = () => {
   const [tabItems, setTabItems] = useState([
     {
       id: 1,
-      name: "New Vacancies",
+      name: "Vacancies",
       status: false,
     },
     {
@@ -55,7 +55,7 @@ const FormSteps = () => {
   };
   return (
     <Container>
-      <Row className="mt-5 mb-5">
+      <Row className="mb-5">
         <Col xs={12} lg={4}>
           <FormTabs stepCount={stepCount} tabItems={tabItems} />
         </Col>

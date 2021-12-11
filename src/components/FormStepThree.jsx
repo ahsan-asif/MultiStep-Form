@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+import Heading from '../utils/Heading'
+import SubHeading from '../utils/SubHeading';
+
 
 const FormStepThree = (props) => {
   const [status, setStatus] = useState(true);
@@ -82,22 +85,22 @@ const FormStepThree = (props) => {
   };
   return (
     <fieldset className=''>
-      <h2 className=''>Work Experience</h2>
-      <p className='vacancies-description'>
-        Please select the relevant industry your belong to
-      </p>
+      <Heading>Work Experience</Heading>
+      <SubHeading className='vacancies-description'>
+      Add work experience here
+      </SubHeading>
       <div className='form-group country-tabs row'>
         <div className='col-12'>
           {status ? (
             <>
               <button
                 type='button'
-                style={{border: "2px solid #ced4da"}}
+                style={{border: "2px dotted #A0A0A0",fontWeight:'600',marginTop:'10px',color:'#A0A0A0',fontSize:'14px'}}
                 onClick={displayComp}
               >
                 Add Experience
               </button>
-              <h6 style={{textAlign: "center", marginTop: "20px"}}>
+              <h6 style={{textAlign: "center", marginTop: "20px",fontSize:'15px', fontWeight:'500'}}>
                 {" "}
                 Note: You can can select between adding a job experience or
                 showingcasing projects you have worked on.
@@ -119,15 +122,14 @@ const FormStepThree = (props) => {
                     >
                       <div className='row'>
                         <div className='col-5'>
-                          <p style={{fontWeight: 600}}>Company Name</p>
-                          <p>{job.companyName}</p>
+                          <p className="exp-title">Company Name</p>
+                          <p className="exp-description">{job.companyName}</p>
                         </div>
                         <div className='col-5'>
-                          <p style={{fontWeight: 600}}>Time Worked</p>
-                          <p>{job.companyExpDuration}</p>
+                          <p className="exp-title" style={{float:'right'}}>{job.companyExpDuration}</p>
                         </div>
                         <div className='col-2'>
-                          <p
+                          <p className="exp-title"
                             style={{
                               textAlign: "right",
                               color: "#800000",
@@ -141,8 +143,7 @@ const FormStepThree = (props) => {
                       </div>
                       <div className='row'>
                         <div className='col-12'>
-                          <p style={{fontWeight: 600}}>Work Detail</p>
-                          <p>{job.companyExpDetail}</p>
+                        <p className="exp-description">{job.companyExpDetail}</p>
                         </div>
                       </div>
                     </div>
@@ -162,13 +163,12 @@ const FormStepThree = (props) => {
                     >
                       <div className='row'>
                         <div className='col-5'>
-                          <p style={{fontWeight: 600}}>Project Name</p>
-                          <p>{project.projectName}</p>
-                          <p>{project.projectLink}</p>
+                          <p className="exp-title">Project Name</p>
+                          <p className="exp-description">{project.projectName}</p>
+                          <p className="exp-description">{project.projectLink}</p>
                         </div>
                         <div className='col-5'>
-                          <p style={{fontWeight: 600}}>Project Year</p>
-                          <p>{project.projectYear}</p>
+                          <p className="exp-title" style={{float:'right'}}>{project.projectYear}</p>
                         </div>
                         <div className='col-2'>
                           <p
@@ -186,14 +186,13 @@ const FormStepThree = (props) => {
 
                       <div className='row'>
                         <div className='col-12'>
-                          <p style={{fontWeight: 600}}>Project Detail</p>
-                          <p>{project.projectDetail}</p>
+                          <p className="exp-description">{project.projectDetail}</p>
                         </div>
                       </div>
                     </div>
                   ))
                 : ""}
-              <h5 style={{fontWeight: "600"}}>
+              <h5 style={{fontWeight: "600", fontSize:'16px'}}>
                 {jobExpCollection.length > 0
                   ? "Add More Experiences"
                   : "Select Type"}{" "}
@@ -203,7 +202,7 @@ const FormStepThree = (props) => {
                   <button
                     className='project_job_btn'
                     type='button'
-                    style={{border: "2px solid #ced4da"}}
+                    style={{border: "1px solid #A0A0A0", fontSize:'16px', fontWeight:'600'}}
                     onClick={jobFormDisplay}
                   >
                     Job
@@ -213,7 +212,7 @@ const FormStepThree = (props) => {
                   <button
                     className='project_job_btn'
                     type='button'
-                    style={{border: "2px solid #ced4da"}}
+                    style={{border: "1px solid #A0A0A0", fontSize:'16px', fontWeight:'600'}}
                     onClick={projectFormDisplay}
                   >
                     Project
@@ -223,10 +222,10 @@ const FormStepThree = (props) => {
               {jobFormStatus ? (
                 <>
                   <form onSubmit={handleSubmit}>
-                    <div className='row mt-5'>
+                    <div className='row '>
                       <div className='col-6 form-group form-check'>
                         <label
-                          htmlFor='projectName'
+                          htmlFor='companyName'
                           style={{fontWeight: "600"}}
                         >
                           Company Name
@@ -248,13 +247,13 @@ const FormStepThree = (props) => {
                       </div>
                       <div className='col-6 form-group form-check'>
                         <label
-                          htmlFor='projectTime'
+                          htmlFor='companyExpDuration'
                           style={{fontWeight: "600"}}
                         >
                           Time Worked
                         </label>
                         <input
-                          name='projectTime'
+                          name='companyExpDuration'
                           className='form-control'
                           placeholder='Enter Time Period'
                           value={jobExpData.companyExpDuration}
@@ -268,18 +267,18 @@ const FormStepThree = (props) => {
                         />
                       </div>
                     </div>
-                    <div className='row mt-2'>
+                    <div className='row'>
                       <div className='col-12 form-group form-check'>
                         <label
-                          htmlFor='projectDetail'
+                          htmlFor='companyExpDetail'
                           style={{fontWeight: "600"}}
                         >
                           How did you add value to their organization?
                         </label>
                         <textarea
                           rows='6'
-                          name='projectDetail'
-                          value={jobExpData.companyDetail}
+                          name='companyExpDetail'
+                          value={jobExpData.companyExpDetail}
                           className='form-control'
                           onChange={(e) =>
                             setjobExpData({
@@ -317,7 +316,7 @@ const FormStepThree = (props) => {
               {projectFormStatus ? (
                 <>
                   <form onSubmit={handleSubmit}>
-                    <div className='row mt-5'>
+                    <div className='row'>
                       <div className='col-6 form-group form-check'>
                         <label htmlFor='' style={{fontWeight: "600"}}>
                           Project Name
@@ -358,7 +357,7 @@ const FormStepThree = (props) => {
                         />
                       </div>
                     </div>
-                    <div className='row mt-2'>
+                    <div className='row'>
                       <div className='col-6 form-group form-check'>
                         <label htmlFor='' style={{fontWeight: "600"}}>
                           Upload project file or enter link
@@ -396,7 +395,7 @@ const FormStepThree = (props) => {
                         />
                       </div>
                     </div>
-                    <div className='row mt-2'>
+                    <div className='row'>
                       <div className='col-12 form-group form-check'>
                         <label htmlFor='' style={{fontWeight: "600"}}>
                           What did you do in this project?

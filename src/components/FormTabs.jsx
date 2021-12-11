@@ -1,5 +1,7 @@
 import React from "react";
 import "../index.css";
+import vector from '../assets/images/Vector.png';
+import file from '../assets/images/file.png';
 
 const FormTabs = (props) => {
 
@@ -14,9 +16,9 @@ const FormTabs = (props) => {
       {
         props.tabItems.map(item =>(
           <li id={item.id} className={props.stepCount===item.id?'current_tab':tabStyling(item.id)} key={item.id}>
-          <span className='fa fa-file-text file-icon'></span><span className="tab-text">{item.name}{" "}</span>
+          <img src={file} alt="file-icon" /><span className="tab-text">{item.name}{" "}</span>
           <span className={item.id<props.stepCount?"list_activated_span":"icon-outer"}>
-            <span className='icon' >&#10003;</span>
+            <span className='icon' ><img src={vector} alt="arrow" /></span>
           </span>
         </li>
         ))
